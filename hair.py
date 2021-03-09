@@ -33,7 +33,7 @@ while True:
     # ret为bool类型，指示是否成功读取这一帧
     ret, frame = vc.read()
     frame = cv2.flip(frame, 1)
-    # 抠出人脸
+    # 分割
     img = module.segmentation(images=[frame], use_gpu=True)[0]['data']
     img[img != 2] = 1
     img[img == 2] = 0
